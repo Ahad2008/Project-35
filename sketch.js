@@ -18,6 +18,7 @@ function setup() {
   
   dog = createSprite(250, 350, 10, 10);
   dog.addImage(DogIMG);
+  dog.scale = 0.4;
 
 }
 
@@ -29,10 +30,19 @@ function draw() {
     writeStock(foodS);
    dog.addImage(HappyDogIMG);
   }
+  if (keyWentUp(UP_ARROW)){
+   dog.addImage(DogIMG);
+  }
+  if (foodS === 0){
+    foodS = 50;
+  }
  
   drawSprites();
   //add styles here
-  text("Note:Press Up_Arrow Key To Feed Milk",100,50);
+  fill("yellow");
+  textSize(20)
+  text("Note:Press Up_Arrow Key To Feed Milk",80,50);
+  text("Food Remaining: " + foodS, 150, 150);
   }
   
   function readStock(data){
